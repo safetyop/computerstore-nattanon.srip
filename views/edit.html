@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EDIT PRODUCT — COMPSTORE</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="/" class="navbar-brand">
+        <div class="brand-dot"></div>
+        COMPSTORE
+      </a>
+      <div class="navbar-links">
+        <a href="/" class="nav-link">INVENTORY</a>
+        <a href="/add" class="nav-link">+ ADD ITEM</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/">INVENTORY</a>
+        <span>›</span>
+        <span id="editBreadcrumb">EDIT PRODUCT</span>
+      </div>
+
+      <div class="panel fade-up">
+        <div class="panel-header">
+          <div>
+            <div class="page-title" id="editPageTitle">
+              EDIT <span class="accent">PRODUCT</span>
+            </div>
+            <div class="page-subtitle">แก้ไขข้อมูลสินค้า</div>
+          </div>
+        </div>
+
+        <div class="alert alert-info show" style="margin-bottom: 0.5rem">
+          // แก้ไขข้อมูลด้านล่างแล้วกด UPDATE PRODUCT เพื่อบันทึก
+        </div>
+        <div class="alert" id="formAlert"></div>
+
+        <form id="editForm" autocomplete="off">
+          <input type="hidden" id="productId" />
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label"
+                >PRODUCT NAME <span class="req">*</span></label
+              >
+              <input
+                class="form-control"
+                type="text"
+                id="eName"
+                placeholder="Product name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">BRAND</label>
+              <input
+                class="form-control"
+                type="text"
+                id="eBrand"
+                placeholder="Brand"
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">CATEGORY</label>
+              <select class="form-control" id="eCategory">
+                <option value="">— SELECT CATEGORY —</option>
+                <option>CPU</option>
+                <option>GPU</option>
+                <option>RAM</option>
+                <option>Storage</option>
+                <option>Motherboard</option>
+                <option>PSU</option>
+                <option>Cooling</option>
+                <option>Case</option>
+                <option>Monitor</option>
+                <option>Peripheral</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label"
+                >PRICE (THB) <span class="req">*</span></label
+              >
+              <input
+                class="form-control"
+                type="number"
+                id="ePrice"
+                min="0"
+                step="0.01"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">STOCK QTY</label>
+              <input class="form-control" type="number" id="eStock" min="0" />
+            </div>
+
+            <div class="form-group full">
+              <label class="form-label">DESCRIPTION</label>
+              <textarea
+                class="form-control"
+                id="eDesc"
+                placeholder="// specs, features, notes..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <a href="/" class="btn btn-ghost">← CANCEL</a>
+            <button type="submit" class="btn btn-primary">
+              UPDATE PRODUCT
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>

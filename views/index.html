@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ATOMSTORE — ระบบจัดการสินค้า</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="/" class="navbar-brand">
+        <div class="brand-dot"></div>
+        ATOMSTORE
+      </a>
+      <div class="navbar-links">
+        <a href="/" class="nav-link active">INVENTORY</a>
+        <a href="/add" class="nav-link">+ ADD ITEM</a>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="alert" id="pageAlert"></div>
+
+      <!-- STATS -->
+      <div class="stats-grid">
+        <div class="stat-card cyan">
+          <div class="stat-label">Total Products</div>
+          <div class="stat-value" id="statCount">—</div>
+          <div class="stat-icon">◈</div>
+        </div>
+        <div class="stat-card orange">
+          <div class="stat-label">Stock Value</div>
+          <div class="stat-value" id="statValue" style="font-size: 1.3rem">
+            —
+          </div>
+          <div class="stat-icon">฿</div>
+        </div>
+        <div class="stat-card green">
+          <div class="stat-label">Low Stock Alerts</div>
+          <div class="stat-value" id="statLow">—</div>
+          <div class="stat-icon">⚠</div>
+        </div>
+      </div>
+
+      <!-- TABLE PANEL -->
+      <div class="panel">
+        <div class="panel-header">
+          <div>
+            <div class="page-title">
+              PRODUCT <span class="accent">INVENTORY</span>
+            </div>
+            <div class="page-subtitle">อุปกรณ์คอมพิวเตอร์ทั้งหมด</div>
+          </div>
+          <a href="/add" class="btn btn-primary">+ NEW PRODUCT</a>
+        </div>
+
+        <div class="search-bar">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="// search by name or brand..."
+          />
+          <select id="catFilter">
+            <option value="">ALL CATEGORIES</option>
+            <option>CPU</option>
+            <option>GPU</option>
+            <option>RAM</option>
+            <option>Storage</option>
+            <option>Motherboard</option>
+            <option>PSU</option>
+            <option>Cooling</option>
+            <option>Case</option>
+            <option>Monitor</option>
+            <option>Peripheral</option>
+          </select>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Brand</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Added</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DELETE MODAL -->
+    <div class="modal-overlay" id="delModal">
+      <div class="modal">
+        <div class="modal-title">⚠ CONFIRM DELETE</div>
+        <div class="modal-body">
+          คุณต้องการลบสินค้า <strong id="delName"></strong> ออกจากระบบ?<br />
+          การลบไม่สามารถย้อนกลับได้
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-ghost" onclick="closeDelete()">CANCEL</button>
+          <button class="btn btn-danger" onclick="execDelete()">DELETE</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>
